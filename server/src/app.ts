@@ -27,7 +27,7 @@ app.use("/api/auth", authRoutes);
 
 app.use("/api/transactions", transactionRoutes);
 
-app.use("*", (_, res) => {
+app.use("/:path*", (_, res) => {
     res.status(404).json({
         message: "Route not found"
     })
