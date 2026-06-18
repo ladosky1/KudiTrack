@@ -89,6 +89,25 @@ const categoryMap: Record<TransactionCategory, string[]> = {
         "extensions",
         "socket"
     ],
+    Gadgets: [
+        "phone",
+        "laptop",
+        "charger",
+        "earpiece",
+        "earbuds",
+        "headphone",
+        "powerbank",
+        "pouch",
+        "screenguards",
+        "camera",
+        "keyboard",
+        "mouse",
+        "watch",
+        "console",
+        "ps4",
+        "ps5",
+        "xbox"
+    ],
     Other: [],
 }
 
