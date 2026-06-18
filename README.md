@@ -6,18 +6,18 @@ KudiTrack is a modern full-stack personal finanace tracker built to help users m
 ### Light Mode Layouts
 
 <p align="center">
-    <img src="./assets/dashboardpage.jpeg" alt="Dashboardpage light"/>
-    <img src="/assets/transactionspage.jpeg" alt="transactionpage light"/>
-    <img src="/assets/settingspage.jpeg" alt="settingspage light"/>
-    <img src="/assets/expensechartview.jpeg" alt="expense chart"/>
+    <img src="./assets/dashboardpage.jpeg" width="280" alt="Dashboardpage light"/>
+    <img src="/assets/transactionspage.jpeg" width="280" alt="transactionpage light"/>
+    <img src="/assets/settingspage.jpeg" width="280" alt="settingspage light"/>
+    <img src="/assets/expensechartview.jpeg" width="280" alt="expense chart"/>
 </p>
 
 ### Dark Mode Layouts
 
 <p align="center">
-    <img src="/assets/darkdashboardpage.jpeg" alt="dashboardpage dark"/>
-    <img src="/assets/darktransactionspage.jpeg" alt="transactionspage dark"/>
-    <img src="/assets/darksettingspage.jpeg" alt="settingspage dark"/>
+    <img src="/assets/darkdashboardpage.jpeg" width="280" alt="dashboardpage dark"/>
+    <img src="/assets/darktransactionspage.jpeg" width="280" alt="transactionspage dark"/>
+    <img src="/assets/darksettingspage.jpeg" width="280" alt="settingspage dark"/>
 </p>
 
 ## ⚡Core Features
