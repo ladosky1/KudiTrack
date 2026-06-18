@@ -18,6 +18,9 @@ export function errorMiddleware(
             message: error.message,
         });
     }
+    
+    console.error("Backend unhandled error", error);
+
     return res.status(500).json({
         message: "Internal server error",
     })
