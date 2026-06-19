@@ -10,10 +10,12 @@ interface TransactionPreviewProps{
     onConfirm: () => void;
 
     onCancel: () => void;
+
+    isLoading: boolean;
 }
 
 export function TransactionPreview({ 
-    transaction, onConfirm, onCancel, }: TransactionPreviewProps){
+    transaction, onConfirm, onCancel, isLoading }: TransactionPreviewProps){
     
     const isIncome = transaction.type === "income";
 
@@ -46,10 +48,11 @@ export function TransactionPreview({
                     </Badge>
                 </Group>
 
-                <Group>
+                <Stack>
                     <Button
                         fullWidth
                         radius="xl"
+                        loading={isLoading}
                         onClick={onConfirm}>
                         save
                     </Button>
@@ -59,10 +62,11 @@ export function TransactionPreview({
                         variant="light"
                         color="gray"
                         radius="xl"
+                        disabled={isLoading}
                         onClick={onCancel}>
                         cancel
                     </Button>
-                </Group>
+                </Stack>
             </Stack>
     )
 }

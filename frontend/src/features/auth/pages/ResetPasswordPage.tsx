@@ -87,6 +87,7 @@ export default function ResetPasswordPage(){
                     
                     <PasswordInput
                         label="New Password"
+                        description="Must be at least 6 characters with an uppercase letter, lowercase letter and a number"
                         value={newPassword}
                         onChange={(e) => setNewPassword(e.currentTarget.value)}
                         required/>

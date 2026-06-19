@@ -8,8 +8,11 @@ export function errorMiddleware(
     error: unknown, _: Request, res: Response, __: NextFunction
 ) {
     if (error instanceof ZodError){
+        
+        const primaryMessage = error.errors[0]?.message || "Validation failed";
+
         return res.status(400).json({
-            message: "Validation failed",
+            message: primaryMessage,
             errors: error.errors,
         });
     }

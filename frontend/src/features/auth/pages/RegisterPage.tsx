@@ -86,6 +86,7 @@ export default function RegisterPage(){
 
                     <PasswordInput
                         label="Password"
+                        description="Must be at least 6 characters with an uppercase letter, lowercase letter and a number"
                         placeholder="******"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}

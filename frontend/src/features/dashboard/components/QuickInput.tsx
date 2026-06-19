@@ -114,7 +114,8 @@ export default function QuickInput({ onAddTransaction }: QuickInputProps){
                 <TransactionPreview
                     transaction={previewTransaction}
                     onCancel={handleCancel}
-                    onConfirm={handleConfirm}/>
+                    onConfirm={handleConfirm}
+                    isLoading={isLoading}/>
             )}
         </Modal>
         </>
