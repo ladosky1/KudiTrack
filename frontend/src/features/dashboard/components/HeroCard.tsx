@@ -32,13 +32,20 @@ export default function HeroCard({
             padding="lg"
             shadow='sm'>
             <Stack gap="lg">
-                <Group justify='space-between'>
-                    <Stack gap={2}>
+                <Group justify='space-between' align='center' wrap='nowrap'>
+                    <Stack gap={2} style={{overflow: 'hidden'}}>
                         <Text size='sm' c="dimmed">
                             Current Balance
                         </Text>
 
-                        <Text fw={800} size='2rem' lh={1}>
+                        <Text 
+                            fw={800} 
+                            size='2rem' 
+                            lh={1} 
+                            style={{
+                                fontSize: 'clamp(1.4rem, 5vw, 2rem)',
+                                whiteSpace: 'nowrap'
+                            }}>
                             {isBalanceVisible
                                 ? formatCurrency(balance)
                                 : hiddenValue}
@@ -49,7 +56,7 @@ export default function HeroCard({
                         </Text>
                     </Stack>
 
-                    <Group gap="xs">
+                    <Group gap="xs" style={{flexShrink: 0}}>
                         <ActionIcon
                             onClick={onToggleBalance}
                             variant='subtle'
