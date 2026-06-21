@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { useMemo, useEffect, useState } from "react";
 import { Title, Stack, Text, Skeleton } from "@mantine/core";
 import PageContainer from "@/components/shared/PageContainer";
 
@@ -19,6 +19,20 @@ export default function DashboardPage(){
 
     const { transactions, addTransaction, isLoading } = useTransactions();
     const { user } = useAuth();
+    const [isBalanceVisible, setIsBalanceVisible] = useState<boolean>(() =>{
+        return JSON.parse(localStorage.getItem("balance_visible") ?? "true")
+    });
+
+    useEffect(() => {
+        localStorage.setItem(
+            "balance_visible", 
+            String(isBalanceVisible)
+        );
+    }, [isBalanceVisible]);
+
+    function toggleBalanceVisibility() {
+        setIsBalanceVisible((prev) => !prev);
+    }
 
     const summary = useMemo(
         () => 
@@ -87,7 +101,9 @@ export default function DashboardPage(){
                 <HeroCard
                     balance={summary.balance}
                     income={summary.income}
-                    expenses={summary.expenses} />
+                    expenses={summary.expenses}
+                    isBalanceVisible={isBalanceVisible}
+                    onToggleBalance={toggleBalanceVisibility} />
             )}
 
             <QuickInput 

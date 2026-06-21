@@ -1,18 +1,27 @@
-import { Card, Group, Stack, Text, ThemeIcon } from '@mantine/core';
+import { Card, Group, Stack, Text, ThemeIcon, ActionIcon } from '@mantine/core';
 import { motion } from 'framer-motion';
 import { 
     HiOutlineWallet,
     HiArrowTrendingUp,
-    HiArrowTrendingDown } from 'react-icons/hi2';
+    HiArrowTrendingDown,
+    HiEye,
+    HiEyeSlash, } from 'react-icons/hi2';
 import { formatCurrency } from '@/lib/FormatCurrency';
 
 interface HeroCardProps {
     balance: number;
     income: number;
     expenses: number;
+    isBalanceVisible: boolean;
+    onToggleBalance: () => void;
 }
 
-export default function HeroCard({ balance, income, expenses,}: HeroCardProps){
+export default function HeroCard({ 
+    balance, income, expenses, isBalanceVisible, onToggleBalance
+}: HeroCardProps){
+
+    const hiddenValue = "*******"
+
     return (
         <Card
             component={motion.div}
@@ -30,21 +39,41 @@ export default function HeroCard({ balance, income, expenses,}: HeroCardProps){
                         </Text>
 
                         <Text fw={800} size='2rem' lh={1}>
-                            {formatCurrency(balance)}
+                            {isBalanceVisible
+                                ? formatCurrency(balance)
+                                : hiddenValue}
                         </Text>
 
                         <Text size='sm' c="dimmed">
                             Financial Overview for today
                         </Text>
                     </Stack>
-                    
-                    <ThemeIcon
-                        size={56}
-                        radius='xl'
-                        color='blue'
-                        variant='light'>
-                        <HiOutlineWallet size={28} />
-                    </ThemeIcon>
+
+                    <Group gap="xs">
+                        <ActionIcon
+                            onClick={onToggleBalance}
+                            variant='subtle'
+                            color='gray'
+                            size='lg'
+                            radius='xl'
+                            aria-label={
+                                isBalanceVisible
+                                    ? "Hide Balance"
+                                    : "Show Balance"
+                            }>
+                            {isBalanceVisible 
+                                ? <HiEyeSlash size={20}/> 
+                                : <HiEye size={20}/>}
+                        </ActionIcon>
+
+                        <ThemeIcon
+                            size={56}
+                            radius='xl'
+                            color='blue'
+                            variant='light'>
+                            <HiOutlineWallet size={28} />
+                        </ThemeIcon>
+                    </Group>
                 </Group>
 
                 <Group grow>
@@ -68,7 +97,9 @@ export default function HeroCard({ balance, income, expenses,}: HeroCardProps){
                         </Group>
 
                         <Text fw={700} c='green'>
-                            {formatCurrency(income)}
+                            {isBalanceVisible
+                                ? formatCurrency(income)
+                                : hiddenValue}
                         </Text>
                     </Card>
 
@@ -92,7 +123,9 @@ export default function HeroCard({ balance, income, expenses,}: HeroCardProps){
                         </Group>
 
                         <Text fw={700} c='red'>
-                            {formatCurrency(expenses)}
+                            {isBalanceVisible
+                                ? formatCurrency(expenses)
+                                : hiddenValue}
                         </Text>
                     </Card>
                 </Group>
